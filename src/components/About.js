@@ -29,6 +29,7 @@ function About() {
   };
 
   useEffect(() => {
+    console.log("blegh");
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
 
@@ -38,7 +39,7 @@ function About() {
   }, [showSmallText]);
 
   return (
-    <div className="about-section">
+    <section className="about">
       <h2>About Me</h2>
       <div className="about-container">
         <div className="image-container">
@@ -103,21 +104,20 @@ function About() {
             >
               <h4>~ Hello World!</h4>
               <p>
-                ~ I’m a software engineer passionate about building
-                applications, while balancing time and effort with getting the
-                most effective results. I take a mindful approach to software
-                development; first identifying the core goals and business
-                objectives, then finding the best fitting system architecture
-                and programming frameworks to achieve those goals, and finally
-                mastering the relevant technical skills required to deliver a
-                high quality product.
+                ~ I’m a software engineer passionate about building applications
+                by balancing time and effort to get the most effective results.
+                I take a mindful approach to software development; first
+                identifying the core goals and business objectives, then finding
+                the best fitting system architecture and programming frameworks
+                to achieve those goals, and finally mastering the relevant
+                technical skills required to deliver a high quality product.
               </p>
               <p>
                 ~ I either have practical experience or a comprehensive
                 understanding of most modern tech-stacks, giving me a great
                 perspective to implement reliable solutions and make intuitive
                 decisions that leverage the best tools available today. I
-                believe this comes from a genuine curiosity and desire to build
+                believe this comes from genuine curiosity and a desire to build
                 interesting things.
               </p>
             </div>
@@ -138,7 +138,7 @@ function About() {
                 understanding of most modern tech-stacks, giving me a great
                 perspective to implement reliable solutions and make intuitive
                 decisions that leverage the best tools available today. I
-                believe this comes from a genuine curiosity and desire to build
+                believe this comes from genuine curiosity and a desire to build
                 interesting things.
               </p>
             </div>
@@ -159,7 +159,7 @@ function About() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

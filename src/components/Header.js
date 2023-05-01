@@ -1,13 +1,13 @@
 import ComputerIcon from "../assets/computer-icon.svg";
 
-function Heading() {
+function Header() {
   return (
-    <div className="heading">
+    <header>
       <img src={ComputerIcon} height="120" width="120" alt="Computer Icon" />
       <h1>Michael Mancini</h1>
       <h3>Frontend Engineer</h3>
-    </div>
+    </header>
   );
 }
 
-export default Heading;
+export default Header;
