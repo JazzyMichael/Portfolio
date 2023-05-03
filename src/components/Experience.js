@@ -1,10 +1,6 @@
-function Experience() {
-  const experience = [
-    { company: "Goji Systems", dates: "2018-2019" },
-    { company: "GoPuff", dates: "2019-2020" },
-    { company: "Consulting", dates: "2020-2022" },
-  ];
+import { experience } from "../constants";
 
+function Experience() {
   return (
     <section className="experience">
       <h2>Experience</h2>

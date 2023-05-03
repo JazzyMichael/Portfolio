@@ -114,3 +114,20 @@ export const skills = [
   },
   { title: "Azure", icon: "devicon-azure-plain", animation: "fade-up-left" },
 ];
+
+export const experience = [
+  { company: "Goji Systems", dates: "2018-2019" },
+  { company: "GoPuff", dates: "2019-2020" },
+  { company: "Consulting", dates: "2020-2022" },
+];
+
+export const descriptions = {
+  michael: [
+    "I'm a software engineer passionate about building applications by balancing time and effort to get the most effective results. I take a mindful approach to software development; first identifying the core goals and business objectives, then finding the best fitting system architecture and programming frameworks to achieve those goals, and finally mastering the relevant technical skills required to deliver a high quality product.",
+    "I either have practical experience or a comprehensive understanding of most modern  tech-stacks, giving me a great perspective to implement reliable solutions and make intuitive decisions that leverage the best tools available today. I believe this comes from genuine curiosity and a desire to build interesting things.",
+  ],
+  jazzy: [
+    "In 2018 I adopted a beautiful Maine Coon cat named Jazzy. I love the name, and also think it's a great adjective to describe my personality; strategically pushing the boundaries of what is deemed ’normal’ and constantly challenging my beliefs.",
+    "I also enjoy playing improv guitar with odd rhythms and complex chords, a common characteristic of Jazz music. All of this being said; in addition to adopting the cat, I also adopted the online alias 'JazzyMichael.'",
+  ],
+};

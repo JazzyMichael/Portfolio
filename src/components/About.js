@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { descriptions } from "../constants";
 import face from "../assets/face.jpg";
 import jazzy from "../assets/jazzy.jpg";
 import folder from "../assets/mac-folder.png";
@@ -6,12 +7,13 @@ import folder from "../assets/mac-folder.png";
 function About() {
   const [activeTab, setActiveTab] = useState("michael");
   const [cardDimensions, setCardDimensions] = useState("256x256");
-  const [showSmallText, setShowSmallText] = useState(true);
+  const [showSmallTabs, setshowSmallTabs] = useState(true);
   const aboutCard = useRef(null);
 
   const changeTab = (clickedTab) => {
-    if (clickedTab === activeTab) return;
-    setActiveTab(clickedTab);
+    if (clickedTab !== activeTab) {
+      setActiveTab(clickedTab);
+    }
   };
 
   const resizeHandler = () => {
@@ -19,28 +21,28 @@ function About() {
     const height = aboutCard?.current?.clientHeight || "48";
     setCardDimensions(`${width}x${height}`);
 
-    if (window.innerWidth <= 548 && !showSmallText) {
-      setShowSmallText(true);
+    if (window.innerWidth <= 548 && !showSmallTabs) {
+      setshowSmallTabs(true);
     }
 
-    if (window.innerWidth > 548 && showSmallText) {
-      setShowSmallText(false);
+    if (window.innerWidth > 548 && showSmallTabs) {
+      setshowSmallTabs(false);
     }
   };
 
   useEffect(() => {
-    console.log("blegh");
     resizeHandler();
     window.addEventListener("resize", resizeHandler);
 
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [showSmallText]);
+  }, [showSmallTabs]);
 
   return (
     <section className="about">
       <h2>About Me</h2>
+
       <div className="about-container">
         <div className="image-container">
           <div
@@ -51,6 +53,7 @@ function About() {
           >
             <img src={face} alt="Michael's Face" />
           </div>
+
           <div
             className={`about-image jazzy-image " + ${
               activeTab === "jazzy" ? "foreground-image" : "background-image"
@@ -60,33 +63,34 @@ function About() {
             <img src={jazzy} alt="Michael's Cat" />
           </div>
         </div>
+
         <div className="about-card" ref={aboutCard}>
           <div className="about-card-header">
             <div className="dot dot__red"></div>
             <div className="dot dot__yellow"></div>
             <div className="dot dot__green"></div>
-            <div className="about-card-header-text-container">
-              <div className="about-card-header-text">
-                <img src={folder} height="24" alt="Blue Folder" />
-                <div
-                  style={{
-                    height: "22px",
-                    paddingLeft: "4px",
-                    paddingTop: "3px",
-                  }}
-                >
-                  {!showSmallText ? "~/Portfolio/AboutMe - -zsh" : "~/AboutMe"}{" "}
+            <div className="about-card-header-label-container">
+              <div className="about-card-header-label">
+                <img
+                  src={folder}
+                  draggable="false"
+                  height="24"
+                  alt="Blue Folder"
+                />
+                <div className="about-card-header-text">
+                  {!showSmallTabs ? "~/Portfolio/AboutMe - -zsh" : "~/AboutMe"}{" "}
                   - {cardDimensions}
                 </div>
               </div>
             </div>
           </div>
+
           <div className="about-card-tabs">
             <div
               className={activeTab === "michael" ? "tab active-tab" : "tab"}
               onClick={() => changeTab("michael")}
             >
-              {showSmallText
+              {showSmallTabs
                 ? "~/Michael"
                 : "~/Portfolio/AboutMe/Michael - -zsh"}
             </div>
@@ -94,67 +98,22 @@ function About() {
               className={activeTab === "jazzy" ? "tab active-tab" : "tab"}
               onClick={() => changeTab("jazzy")}
             >
-              {showSmallText ? "~/Jazzy" : "~/Portfolio/AboutMe/Jazzy - -zsh"}
+              {showSmallTabs ? "~/Jazzy" : "~/Portfolio/AboutMe/Jazzy - -zsh"}
             </div>
           </div>
+
           <div className="about-card-content">
-            <div
-              className={activeTab === "jazzy" ? "" : "hidden"}
-              style={{ visibility: "hidden" }}
-            >
+            <div className={activeTab === "michael" ? "" : "invisible"}>
               <h4>~ Hello World!</h4>
-              <p>
-                ~ I’m a software engineer passionate about building applications
-                by balancing time and effort to get the most effective results.
-                I take a mindful approach to software development; first
-                identifying the core goals and business objectives, then finding
-                the best fitting system architecture and programming frameworks
-                to achieve those goals, and finally mastering the relevant
-                technical skills required to deliver a high quality product.
-              </p>
-              <p>
-                ~ I either have practical experience or a comprehensive
-                understanding of most modern tech-stacks, giving me a great
-                perspective to implement reliable solutions and make intuitive
-                decisions that leverage the best tools available today. I
-                believe this comes from genuine curiosity and a desire to build
-                interesting things.
-              </p>
+              {descriptions.michael.map((paragraph, i) => (
+                <p key={i}>~ {paragraph}</p>
+              ))}
             </div>
-            <div className={activeTab === "michael" ? "" : "hidden"}>
-              <h4>~ Hello World!</h4>
-              <p>
-                ~ I’m a software engineer passionate about building
-                applications, while balancing time and effort with getting the
-                most effective results. I take a mindful approach to software
-                development; first identifying the core goals and business
-                objectives, then finding the best fitting system architecture
-                and programming frameworks to achieve those goals, and finally
-                mastering the relevant technical skills required to deliver a
-                high quality product.
-              </p>
-              <p>
-                ~ I either have practical experience or a comprehensive
-                understanding of most modern tech-stacks, giving me a great
-                perspective to implement reliable solutions and make intuitive
-                decisions that leverage the best tools available today. I
-                believe this comes from genuine curiosity and a desire to build
-                interesting things.
-              </p>
-            </div>
+
             <div className={activeTab === "jazzy" ? "absolute-tab" : "hidden"}>
-              <p>
-                ~ In 2018 I adopted a beautiful Maine Coon cat named Jazzy. I
-                love the name, and also think it's a great adjective to describe
-                my personality; strategically pushing the boundaries of what is
-                deemed ’normal’ and constantly challenging my beliefs.
-              </p>
-              <p>
-                ~ I also enjoy playing improv guitar with odd rhythms and
-                complex chords, a common characteristic of Jazz music. All of
-                this being said; in addition to adopting the cat, I also adopted
-                the online alias “JazzyMichael.”
-              </p>
+              {descriptions.jazzy.map((paragraph, i) => (
+                <p key={i}>~ {paragraph}</p>
+              ))}
             </div>
           </div>
         </div>

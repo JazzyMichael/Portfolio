@@ -17,12 +17,6 @@ body {
 .blur-background {
   background-image: url("./assets/nebula-1.jpeg");
   background-position: bottom;
-  /* background: linear-gradient(
-    15deg,
-    rgb(37 36 54) 0%,
-    rgb(81 81 91) 30%,
-    rgb(142, 95, 60) 100%
-  ); */
 }
 
 .App {
@@ -77,15 +71,23 @@ section.about {
   gap: 8px;
 }
 
-.about-card-header-text-container {
+.about-card-header-label-container {
   display: flow-root;
   width: calc(100% - 108px);
 }
 
-.about-card-header-text {
+.about-card-header-label {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
+  user-select: none;
+}
+
+.about-card-header-text {
+  height: 22px;
+  padding-left: 4px;
+  padding-top: 3px;
 }
 
 .dot {
@@ -131,10 +133,15 @@ section.about {
 .active-tab:hover {
   background-color: #424846 !important;
   cursor: default !important;
+  user-select: none;
 }
 
 .hidden {
   display: none;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .absolute-tab {
