@@ -68,7 +68,6 @@ section.about {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
 }
 
 .about-card-header-label-container {
@@ -88,6 +87,64 @@ section.about {
   height: 22px;
   padding-left: 4px;
   padding-top: 3px;
+}
+
+.dot-container {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+}
+
+.close-1 {
+  width: 70%;
+  height: 2px;
+  background-color: #00000090;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.close-2 {
+  width: 70%;
+  height: 2px;
+  background-color: #00000090;
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.minimize-1 {
+  width: 60%;
+  height: 2px;
+  background-color: #00000090;
+  position: absolute;
+}
+
+.maximize-1 {
+  height: 50%;
+  width: 50%;
+  background-color: #00000090;
+  position: absolute;
+}
+
+.maximize-2 {
+  width: 100%;
+  height: 2px;
+  background-color: #78b159;
+  position: absolute;
+  transform: rotate(45deg);
+}
+
+.dot-container:hover .dot-icon {
+  visibility: visible;
+}
+
+.dot-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
 }
 
 .dot {

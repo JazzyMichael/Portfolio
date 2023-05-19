@@ -66,9 +66,26 @@ function About() {
 
         <div className="about-card" ref={aboutCard}>
           <div className="about-card-header">
-            <div className="dot dot__red"></div>
-            <div className="dot dot__yellow"></div>
-            <div className="dot dot__green"></div>
+            <div className="dot-container">
+              <div className="dot dot__red">
+                <div className="dot-icon">
+                  <div className="close-1"></div>
+                  <div className="close-2"></div>
+                </div>
+              </div>
+              <div className="dot dot__yellow">
+                <span className="dot-icon">
+                  <div className="minimize-1"></div>
+                </span>
+              </div>
+              <div className="dot dot__green">
+                <span className="dot-icon">
+                  <div className="maximize-1"></div>
+                  <div className="maximize-2"></div>
+                </span>
+              </div>
+            </div>
+
             <div className="about-card-header-label-container">
               <div className="about-card-header-label">
                 <img
